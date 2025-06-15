@@ -1,103 +1,99 @@
+"use client";
+
 import Image from "next/image";
+import { DollarSign, Globe, Store, Package } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="flex flex-col">
+      <section className="flex flex-col mt-10 md:mt-0 md:min-h-screen md:flex-row max-w-[1590px] items-center justify-between mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex-1 text-center"
+        >
+          <h1 className="text-4xl md:text-7xl font-bold text-white mb-4">Albion Event Bot</h1>
+          <p className="text-gray-200 text-lg mb-6 max-w-xl text-center mx-auto">
+            Um bot para ajudar você a dividir loot e consultar preços do mercado em Albion Online.
+            <br />
+            <br />
+            <strong>Divida o loot de forma justa e rápida com seus amigos!</strong>
+          </p>
+          <a
+            href="#"
+            className="inline-block bg-indigo-500 hover:bg-indigo-600 text-white text-xl font-semibold px-8 py-5 rounded-xl shadow-lg transition duration-300"
+          >
+            Adicionar ao Discord
+          </a>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="hidden md:flex flex-1 items-center justify-center "
+        >
+          <Image alt="Albion Event Bot Logo" src="/alpaca.png" width={600} height={500} />
+        </motion.div>
+      </section>
+      <section className="max-w-[1300px] mx-auto px-6 pb-4 mt-20 md:mt-0">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Sobre o Bot</h2>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Card 1 */}
+          <div className="flex flex-row bg-[#221f41] border border-[#332f5d] p-4 rounded-xl shadow-md text-white">
+            <div>
+              <Package color="white" size={35} />
+            </div>
+            <div className="px-6">
+              <h3 className="text-xl font-semibold mb-2">Split Loot</h3>
+              <p>
+                Crie eventos, acompanhe a participação dos jogadores e simule a divisão de loot com base no tempo de
+                participação de cada um — tudo de forma rápida e justa.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 2 */}
+          <div className="flex flex-row bg-[#221f41] border border-[#332f5d] p-4 rounded-xl shadow-md text-white">
+            <div>
+              <Store color="white" size={35} />
+            </div>
+            <div className="px-6">
+              <h3 className="text-xl font-semibold mb-2">Market Price</h3>
+              <p>Consulte os preços de qualquer item do jogo direto no Discord, com suporte a todos os servidores.</p>
+            </div>
+          </div>
+
+          {/* Card 3 */}
+          <div className="flex flex-row bg-[#221f41] border border-[#332f5d] p-4 rounded-xl shadow-md text-white">
+            <div>
+              <DollarSign color="white" size={35} />
+            </div>
+            <div className="px-6">
+              <h3 className="text-xl font-semibold mb-2">Gerenciamento de saldos</h3>
+              <p>
+                Controle os valores devidos a cada jogador após o evento, registre depósitos, saques e mantenha o saldo
+                da guilda sempre organizado.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 4 */}
+          <div className="flex flex-row bg-[#221f41] border border-[#332f5d] p-4 rounded-xl shadow-md text-white">
+            <div>
+              <Globe color="white" size={35} />
+            </div>
+            <div className="px-6">
+              <h3 className="text-xl font-semibold mb-2">Multilíngue</h3>
+              <p>
+                O bot fala a sua língua! Suporte a múltiplos idiomas para facilitar o uso por jogadores do mundo todo.
+              </p>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+    </main>
   );
 }
