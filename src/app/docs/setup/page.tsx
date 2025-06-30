@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function SetupPage() {
   return (
     <section className="space-y-6">
@@ -6,8 +8,12 @@ export default function SetupPage() {
       <p>
         Para configurar o bot de eventos, use o comando{" "}
         <code className="bg-gray-800 px-2 py-1 rounded text-sm">/setup</code> e escolha o seu idioma. Ele criará
-        automaticamente os canais e permissões necessários para o funcionamento dos eventos. Atualmente o bot tem
-        suporte para os seguintes idiomas: <code className="bg-gray-800 px-2 py-1 rounded text-sm">Português</code> e{" "}
+        automaticamente os{" "}
+        <Link href="/docs/channels" className="text-blue-700 hover:underline">
+          canais
+        </Link>{" "}
+        e permissões necessários para o funcionamento dos eventos. Atualmente o bot tem suporte para os seguintes
+        idiomas: <code className="bg-gray-800 px-2 py-1 rounded text-sm">Português</code> e{" "}
         <code className="bg-gray-800 px-2 py-1 rounded text-sm">inglês</code>
       </p>
 
@@ -28,7 +34,7 @@ export default function SetupPage() {
         </p>
 
         <div className="bg-purple-900/20 border-l-4 border-purple-500 mt-4 p-3 rounded">
-          <p className="text-purple-300 font-semibold">Albion Event Manager</p>
+          <p className="text-purple-300 font-semibold">Albion Event Bot Manager</p>
           <p className="text-sm text-gray-400">
             Usuários com esse cargo terão acesso total às funções de gerenciamento de eventos.
           </p>
