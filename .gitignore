@@ -13,6 +13,8 @@
 # testing
 /coverage
 
+fazer.txt
+
 # next.js
 /.next/
 /out/

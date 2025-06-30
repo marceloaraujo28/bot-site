@@ -24,6 +24,34 @@ export default function DocsLayout({
             </ul>
           </div>
           <div className="flex flex-col gap-3">
+            <h2 className="text-base font-semibold text-gray-500">Como usar</h2>
+            <ul className="border-l border-gray-500  px-3 flex flex-col gap-3 text-gray-300 [&>li:hover]:text-gray-100 transition-colors duration-300">
+              <li>
+                <Link href="/docs/use/create-event">Criar evento</Link>
+              </li>
+              <li>
+                <Link href="/docs/use/participate-event">Participar Evento</Link>
+              </li>
+              <li>
+                <Link href="/docs/use/start-event">Iniciar Evento</Link>
+              </li>
+              <li>
+                <Link href="/docs/use/delete-event">Cancelar Evento</Link>
+              </li>
+              <li>
+                <Link href="/docs/use/finish-event">Finalizar Evento</Link>
+              </li>
+            </ul>
+          </div>
+          <div className="flex flex-col gap-3">
+            <h2 className="text-base font-semibold text-gray-500">Market Price</h2>
+            <ul className="border-l border-gray-500  px-3 flex flex-col gap-3 text-gray-300 [&>li:hover]:text-gray-100 transition-colors duration-300">
+              <li>
+                <Link href="/docs/">Consultar preços do Mercado</Link>
+              </li>
+            </ul>
+          </div>
+          <div className="flex flex-col gap-3">
             <h2 className="text-base font-semibold text-gray-500">Comandos</h2>
             <ul className="border-l border-gray-500  px-3 flex flex-col gap-3 text-gray-300 [&>li:hover]:text-gray-100 transition-colors duration-300">
               <li>
@@ -34,6 +62,9 @@ export default function DocsLayout({
               </li>
               <li>
                 <Link href="/docs/commands/transactions">Transações</Link>
+              </li>
+              <li>
+                <Link href="/docs/language">Alterar Idioma</Link>
               </li>
               <li>
                 <Link href="/">Consultar Mercado</Link>
