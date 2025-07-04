@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { DollarSign, Globe, Store, Package } from "lucide-react";
+import { DollarSign, Globe, Store, Package, HandHeart } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -21,12 +22,24 @@ export default function Home() {
             <br />
             <strong>Divida o loot de forma justa e rápida com seus amigos!</strong>
           </p>
-          <a
-            href="#"
-            className="inline-block bg-indigo-500 hover:bg-indigo-600 text-white text-xl font-semibold px-8 py-5 rounded-xl shadow-lg transition duration-300"
-          >
-            Adicionar ao Discord
-          </a>
+          <div className="flex flex-col lg:flex-row justify-center gap-4 py-2">
+            <Link
+              href="https://discord.com/oauth2/authorize?client_id=1272188978765893714&permissions=8&scope=bot%20applications.commands"
+              className="inline-block bg-indigo-500 hover:bg-indigo-600 text-white text-xl font-semibold p-6  rounded-xl shadow-lg transition duration-300"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image alt="Discord Logo" src="/discord.webp" width={24} height={24} className="inline-block mr-2" />
+              <span>Adicionar ao Discord</span>
+            </Link>
+            <Link
+              href="/contribution"
+              className="inline-block bg-green-500 hover:bg-green-800 text-black text-xl font-semibold p-6 rounded-xl shadow-lg transition duration-300"
+            >
+              <HandHeart color="black" size={24} className="inline-block mr-2" />
+              <span>Fazer uma doação</span>
+            </Link>
+          </div>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, x: 50 }}
@@ -37,7 +50,7 @@ export default function Home() {
           <Image alt="Albion Event Bot Logo" src="/alpaca.png" width={600} height={500} />
         </motion.div>
       </section>
-      <section className="max-w-[1300px] mx-auto px-6 pb-4 mt-20 md:mt-0">
+      <section className="max-w-[1300px] mx-auto px-6 pb-4 mt-20 mb-20 md:mt-0">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Sobre o Bot</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
