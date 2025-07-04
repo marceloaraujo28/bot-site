@@ -18,6 +18,7 @@ fazer.txt
 # next.js
 /.next/
 /out/
+.idea
 
 # production
 /build
