@@ -3,8 +3,12 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { Locale } from "@/config/i18n.config";
+import { getDictionaryClient } from "@/dictionaries/client";
 
-export function Navbar() {
+export function Navbar({ lang }: { lang: Locale }) {
+  const t = getDictionaryClient(lang);
+
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -27,19 +31,19 @@ export function Navbar() {
               href="/"
               className="text-gray-300 text-base font-medium hover:text-gray-400 transition-colors duration-300"
             >
-              Home
+              {t.navBar.home}
             </Link>
             <Link
               href="/docs"
               className="text-gray-300 text-base font-medium hover:text-gray-400 transition-colors duration-300"
             >
-              Documentação
+              {t.navBar.docs}
             </Link>
             <Link
               href="/contribution"
               className="text-green-400 text-base font-medium hover:text-green-300 transition-colors duration-300"
             >
-              Fazer Doação
+              {t.navBar.contribution}
             </Link>
           </div>
 
