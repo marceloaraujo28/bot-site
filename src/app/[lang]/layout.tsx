@@ -13,7 +13,7 @@ const interSans = Poppins({
 
 export const metadata: Metadata = {
   title: "Albion Event Bot",
-  description: "Bot para Split Loot e Consultar preços do mercado em Albion Online",
+  description: "Albion Online Bot - Split Loot e Market Prices",
   icons: {
     icon: "/faviconIco.ico",
   },

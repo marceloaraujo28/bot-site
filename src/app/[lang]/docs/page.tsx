@@ -1,12 +1,6 @@
 import { Locale } from "@/config/i18n.config";
 import { getDictionaryServer } from "@/dictionaries/server";
-import { Metadata } from "next";
 import { use } from "react";
-
-export const metadata: Metadata = {
-  title: "Documentação - Albion Event Bot",
-  description: "Bot para Split Loot e Consultar preços do mercado em Albion Online",
-};
 
 export default function Documentation({ params }: { params: Promise<{ lang: Locale }> }) {
   const { lang } = use(params);
