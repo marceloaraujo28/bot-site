@@ -5,6 +5,7 @@ import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/footer/footer";
 import { i18n, Locale } from "@/config/i18n.config";
 import { getDictionaryServer } from "@/dictionaries/server";
+import Script from "next/script";
 
 const interSans = Poppins({
   variable: "--font-poppins",
@@ -44,6 +45,19 @@ export default async function RootLayout({
   const { lang } = await params;
   return (
     <html lang={lang}>
+      <head>
+        {/* Google Analytics */}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-3T5G08VC56" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-3T5G08VC56');
+          `}
+        </Script>
+      </head>
+
       <body className={`${interSans.variable} antialiased`}>
         <Navbar lang={lang} />
         {children}
