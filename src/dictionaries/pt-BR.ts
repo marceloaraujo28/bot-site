@@ -1,5 +1,3 @@
-import { title } from "process";
-
 export const ptBr = {
   HomePage: {
     title: "Albion Event Bot",
@@ -399,5 +397,22 @@ export const ptBr = {
   footer: {
     rights: "© 2025 Albion Event Bot. Todos os direitos reservados.",
     madeWithLove: "Feito com ❤️ pela equipe de desenvolvimento.",
+  },
+  SEO: {
+    home: {
+      title: "Albion Event Bot - Bot para Albion Online com Split Loot e Preço de Mercado",
+      description:
+        "Bot gratuito para Albion Online com funções de Split Loot automático, verificação de preços do mercado e alertas de eventos. Otimize seu jogo com facilidade!",
+      keywords: [
+        "Albion Online bot",
+        "Bot para Albion",
+        "Split Loot Albion",
+        "Mercado Albion Online",
+        "Bot Discord Albion",
+        "Albion Online ferramentas",
+        "Albion Event Bot",
+        "Albion Market Price",
+      ],
+    },
   },
 };

@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/footer/footer";
 import { i18n, Locale } from "@/config/i18n.config";
+import { getDictionaryServer } from "@/dictionaries/server";
 
 const interSans = Poppins({
   variable: "--font-poppins",
@@ -11,13 +12,20 @@ const interSans = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
-export const metadata: Metadata = {
-  title: "Albion Event Bot",
-  description: "Albion Online Bot - Split Loot e Market Prices",
-  icons: {
-    icon: "/faviconIco.ico",
-  },
-};
+export async function generateMetadata({ params }: { params: Promise<{ lang: Locale }> }): Promise<Metadata> {
+  const { lang } = await params;
+
+  const t = getDictionaryServer(lang);
+
+  return {
+    title: t.SEO.home.title,
+    description: t.SEO.home.description,
+    icons: {
+      icon: "/faviconIco.ico",
+    },
+    keywords: t.SEO.home.keywords,
+  };
+}
 
 export async function generateStaticParams() {
   const languages = i18n.locales.map((lang) => ({

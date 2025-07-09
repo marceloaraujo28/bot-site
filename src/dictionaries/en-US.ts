@@ -394,4 +394,21 @@ export const enUs = {
     rights: "© 2025 Albion Event Bot. All rights reserved.",
     madeWithLove: "Made with ❤️ by the development team.",
   },
+  SEO: {
+    home: {
+      title: "Albion Event Bot - Bot for Albion Online with Split Loot and Market Price",
+      description:
+        "Free bot for Albion Online with automatic Split Loot, market price checking, and event alerts. Optimize your game with ease!",
+      keywords: [
+        "Albion Online bot",
+        "Bot for Albion",
+        "Split Loot Albion",
+        "Albion Online Market",
+        "Albion Discord Bot",
+        "Albion Online tools",
+        "Albion Event Bot",
+        "Albion Market Price",
+      ],
+    },
+  },
 };
