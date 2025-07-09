@@ -7,7 +7,7 @@ export default function Breadcrumb() {
 
   const segments = pathname.split("/").filter(Boolean);
 
-  const breadcrumbs = segments.map((segment, _) => {
+  const breadcrumbs = segments.map((segment) => {
     const label = segment.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 
     return {

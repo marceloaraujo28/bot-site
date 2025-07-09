@@ -29,7 +29,7 @@ export default function ContributionPage({ params }: { params: Promise<{ lang: L
     function renderPaypalButton() {
       const container = document.getElementById("paypal-donate-button");
       if (container && container.children.length === 0) {
-        // @ts-expect-error
+        // @ts-expect-error: PayPal types not available globally, injected via external script
         window.PayPal?.Donation.Button({
           env: "production",
           hosted_button_id: "G69XAGBJGZKLQ",
