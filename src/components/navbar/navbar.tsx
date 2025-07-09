@@ -82,13 +82,20 @@ export function Navbar({ lang }: { lang: Locale }) {
           <Link href="/docs" className="text-gray-300 hover:text-white" onClick={() => setIsOpen(false)}>
             {t.navBar.docs}
           </Link>
-          <Link href="/docs" className="text-gray-300 hover:text-white" onClick={() => setIsOpen(false)}>
+          <Link
+            href="https://discord.gg/AjGZbc5b2s"
+            className="text-gray-300 hover:text-white"
+            onClick={() => setIsOpen(false)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Image alt="Discord Logo" src="/discord.png" width={24} height={24} className="inline-block mr-2" />
             <span>{t.navBar.support}</span>
           </Link>
           <Link
             href="/contribution"
             className="text-green-400 text-base font-medium hover:text-green-300 transition-colors duration-300"
+            onClick={() => setIsOpen(false)}
           >
             {t.navBar.contribution}
           </Link>
