@@ -7,8 +7,7 @@ export default function Breadcrumb() {
 
   const segments = pathname.split("/").filter(Boolean);
 
-  // Acumulador para montar os hrefs das breadcrumbs
-  const breadcrumbs = segments.map((segment, index) => {
+  const breadcrumbs = segments.map((segment, _) => {
     const label = segment.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 
     return {

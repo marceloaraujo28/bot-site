@@ -1,4 +1,4 @@
-import { DollarSign, Globe, Store, Package, HandHeart } from "lucide-react";
+import { DollarSign, Globe, Store, Package } from "lucide-react";
 import { Locale } from "@/config/i18n.config";
 import { use } from "react";
 import Header from "@/components/header/header";
