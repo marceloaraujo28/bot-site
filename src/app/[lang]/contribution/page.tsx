@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useEffect } from "react";
+import { use, useEffect, useState } from "react";
 import Image from "next/image";
 import { getDictionaryClient } from "@/dictionaries/client";
 import { Locale } from "@/config/i18n.config";
@@ -8,6 +8,19 @@ import { Locale } from "@/config/i18n.config";
 export default function ContributionPage({ params }: { params: Promise<{ lang: Locale }> }) {
   const { lang } = use(params);
   const t = getDictionaryClient(lang);
+
+  const [copyText, setCopyText] = useState("Copiar código do QR Code");
+
+  const handleClick = () => {
+    const codigoPix =
+      "00020126580014BR.GOV.BCB.PIX0136d285bbea-bb6d-4a5a-8711-9cbd47a14aaa5204000053039865802BR5922Marcelo Messias Araujo6009SAO PAULO62140510gLjxiK7ZOj63040767";
+    navigator.clipboard.writeText(codigoPix);
+    setCopyText("Copiado");
+
+    setTimeout(() => {
+      setCopyText("Copiar código do QR Code");
+    }, 3000);
+  };
 
   useEffect(() => {
     const scriptId = "paypal-donate-sdk";
@@ -44,7 +57,7 @@ export default function ContributionPage({ params }: { params: Promise<{ lang: L
   }, []);
 
   return (
-    <section className="min-h-screen flex flex-col items-center p-10">
+    <section className="min-h-screen flex flex-col items-center p-5">
       <h1 className="text-3xl font-bold text-white text-center">
         {t.ContributionPage.titleInitial} <span className="text-indigo-500">Albion Event Bot</span>{" "}
         {t.ContributionPage.titleMid} <span className="text-green-400">Online</span>
@@ -67,7 +80,14 @@ export default function ContributionPage({ params }: { params: Promise<{ lang: L
           {/* Caixa PIX */}
           <div className="flex-1 border border-[#332f5d] p-6 rounded-lg text-center">
             <h3 className="text-lg font-semibold text-amber-400 mb-4">{t.ContributionPage.pixText}</h3>
-            <Image alt="QR Code PIX" src="/transferir.png" width={250} height={100} className="mx-auto" />
+            <Image alt="QR Code PIX" src="/transferirPix.png" width={250} height={100} className="mx-auto" />
+
+            <button
+              onClick={() => handleClick()}
+              className="mt-4 px-4 py-2 bg-[#1a1832] text-white rounded hover:bg-amber-500 transition cursor-pointer"
+            >
+              {copyText}
+            </button>
           </div>
 
           {/* Caixa PayPal */}

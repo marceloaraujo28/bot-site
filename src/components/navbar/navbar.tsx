@@ -89,7 +89,14 @@ export function Navbar({ lang }: { lang: Locale }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image alt="Discord Logo" src="/discord.png" width={24} height={24} className="inline-block mr-2" />
+            <Image
+              alt="Discord Logo"
+              src="/discord.png"
+              quality={100}
+              width={24}
+              height={24}
+              className="inline-block mr-2"
+            />
             <span>{t.navBar.support}</span>
           </Link>
           <Link
