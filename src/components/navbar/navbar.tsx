@@ -40,6 +40,16 @@ export function Navbar({ lang }: { lang: Locale }) {
               {t.navBar.docs}
             </Link>
             <Link
+              href="https://discord.gg/AjGZbc5b2s"
+              className="text-gray-300 hover:text-white"
+              onClick={() => setIsOpen(false)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image alt="Discord Logo" src="/discord.png" width={20} height={20} className="inline-block mr-2" />
+              <span>{t.navBar.support}</span>
+            </Link>
+            <Link
               href="/contribution"
               className="text-green-400 text-base font-medium hover:text-green-300 transition-colors duration-300"
             >
@@ -67,10 +77,20 @@ export function Navbar({ lang }: { lang: Locale }) {
         </div>
         <div className="flex flex-col p-4 gap-4">
           <Link href="/" className="text-gray-300 hover:text-white" onClick={() => setIsOpen(false)}>
-            Home
+            {t.navBar.home}
           </Link>
           <Link href="/docs" className="text-gray-300 hover:text-white" onClick={() => setIsOpen(false)}>
-            Documentação
+            {t.navBar.docs}
+          </Link>
+          <Link href="/docs" className="text-gray-300 hover:text-white" onClick={() => setIsOpen(false)}>
+            <Image alt="Discord Logo" src="/discord.png" width={24} height={24} className="inline-block mr-2" />
+            <span>{t.navBar.support}</span>
+          </Link>
+          <Link
+            href="/contribution"
+            className="text-green-400 text-base font-medium hover:text-green-300 transition-colors duration-300"
+          >
+            {t.navBar.contribution}
           </Link>
         </div>
       </div>

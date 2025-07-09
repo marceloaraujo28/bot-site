@@ -388,11 +388,13 @@ export const enUs = {
   navBar: {
     home: "Home",
     docs: "Documentation",
+    support: "Support",
     contribution: "Make a Donation",
   },
   footer: {
     rights: "© 2025 Albion Event Bot. All rights reserved.",
     madeWithLove: "Made with ❤️ by the development team.",
+    thanksMessage: "Thank you for using Albion Event Bot! Your journey in Albion Online is easier with us.",
   },
   SEO: {
     home: {

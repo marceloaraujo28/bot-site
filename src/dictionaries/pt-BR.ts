@@ -392,11 +392,13 @@ export const ptBr = {
   navBar: {
     home: "Home",
     docs: "Documentação",
+    support: "Suporte",
     contribution: "Fazer Doação",
   },
   footer: {
     rights: "© 2025 Albion Event Bot. Todos os direitos reservados.",
     madeWithLove: "Feito com ❤️ pela equipe de desenvolvimento.",
+    thanksMessage: "Obrigado por usar o Albion Event Bot! Sua jornada em Albion Online fica mais fácil conosco.",
   },
   SEO: {
     home: {

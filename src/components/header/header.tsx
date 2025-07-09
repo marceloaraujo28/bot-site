@@ -9,7 +9,7 @@ type DictionaryType = ReturnType<typeof getDictionaryServer>;
 
 export default function Header({ t }: { t: DictionaryType }) {
   return (
-    <section className="flex flex-col mt-10 md:mt-0 md:min-h-screen md:flex-row max-w-[1590px] items-center justify-between mx-auto">
+    <section className="flex flex-col mt-10 md:mt-0 md:min-h-screen md:flex-row max-w-[1590px] items-center px-2 justify-between mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -30,7 +30,7 @@ export default function Header({ t }: { t: DictionaryType }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image alt="Discord Logo" src="/discord.webp" width={24} height={24} className="inline-block mr-2" />
+            <Image alt="Discord Logo" src="/discord.png" width={24} height={24} className="inline-block mr-2" />
             <span>{t.HomePage.addToDiscord}</span>
           </Link>
           <Link
