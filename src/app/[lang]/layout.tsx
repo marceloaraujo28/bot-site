@@ -25,6 +25,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Loc
       icon: "/faviconIco.ico",
     },
     keywords: t.SEO.home.keywords,
+    applicationName: "Albion Event Bot",
   };
 }
 
