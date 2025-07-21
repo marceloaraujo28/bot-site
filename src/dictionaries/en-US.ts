@@ -1,12 +1,12 @@
 export const enUs = {
   HomePage: {
     title: "Albion Event Bot",
-    description: "A bot to help you split loot and check market prices in Albion Online.",
-    subtitle: "Split loot fairly and quickly with your friends!",
+    description: "A bot to help you loot split and check market prices in Albion Online.",
+    subtitle: "Loot split fairly and quickly with your friends!",
     addToDiscord: "Add to Discord",
     makeDonation: "Make a Donation",
     aboutBot: "About the Bot",
-    splitLoot: "Split Loot",
+    splitLoot: "Loot Split",
     splitLootDescription:
       "Create events, track player participation, and simulate loot splitting based on each one's participation time — all quickly and fairly.",
     marketPrice: "Market Price",
@@ -398,13 +398,13 @@ export const enUs = {
   },
   SEO: {
     home: {
-      title: "Albion Event Bot - Bot for Albion Online with Split Loot and Market Price",
+      title: "Albion Event Bot - Bot for Albion Online with Loot Split and Market Price",
       description:
-        "Free bot for Albion Online with automatic Split Loot, market price checking, and event alerts. Optimize your game with ease!",
+        "Free bot for Albion Online with automatic Loot Split, market price checking, and event alerts. Optimize your game with ease!",
       keywords: [
         "Albion Online bot",
         "Bot for Albion",
-        "Split Loot Albion",
+        "Loot Split Albion",
         "Albion Online Market",
         "Albion Discord Bot",
         "Albion Online tools",

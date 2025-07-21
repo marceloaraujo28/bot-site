@@ -6,7 +6,7 @@ export const ptBr = {
     addToDiscord: "Adicionar ao Discord",
     makeDonation: "Fazer uma doação",
     aboutBot: "Sobre o Bot",
-    splitLoot: "Split Loot",
+    splitLoot: "Loot Split",
     splitLootDescription:
       "Crie eventos, acompanhe a participação dos jogadores e simule a divisão de loot com base no tempo de participação de cada um — tudo de forma rápida e justa.",
     marketPrice: "Market Price",
@@ -402,13 +402,13 @@ export const ptBr = {
   },
   SEO: {
     home: {
-      title: "Albion Event Bot - Bot para Albion Online com Split Loot e Preço de Mercado",
+      title: "Albion Event Bot - Bot para Albion Online com Loot Split e Preço de Mercado",
       description:
-        "Bot gratuito para Albion Online com funções de Split Loot automático, verificação de preços do mercado e alertas de eventos. Otimize seu jogo com facilidade!",
+        "Bot gratuito para Albion Online com funções de Loot Split automático, verificação de preços do mercado e alertas de eventos. Otimize seu jogo com facilidade!",
       keywords: [
         "Albion Online bot",
         "Bot para Albion",
-        "Split Loot Albion",
+        "Loot Split Albion",
         "Mercado Albion Online",
         "Bot Discord Albion",
         "Albion Online ferramentas",
