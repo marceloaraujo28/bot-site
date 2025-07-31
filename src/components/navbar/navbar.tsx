@@ -56,6 +56,12 @@ export function Navbar({ lang }: { lang: Locale }) {
               {t.navBar.contribution}
             </Link>
             <Link
+              href="/terms"
+              className="text-gray-300 text-base font-medium hover:text-gray-400 transition-colors duration-300"
+            >
+              {t.navBar.terms}
+            </Link>
+            <Link
               href="/privacy"
               className="text-gray-300 text-base font-medium hover:text-gray-400 transition-colors duration-300"
             >
@@ -111,6 +117,12 @@ export function Navbar({ lang }: { lang: Locale }) {
             onClick={() => setIsOpen(false)}
           >
             {t.navBar.contribution}
+          </Link>
+          <Link
+            href="/terms"
+            className="text-gray-300 text-base font-medium hover:text-gray-400 transition-colors duration-300"
+          >
+            {t.navBar.terms}
           </Link>
           <Link
             href="/privacy"

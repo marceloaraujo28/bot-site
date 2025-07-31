@@ -394,6 +394,7 @@ export const ptBr = {
     docs: "Documentação",
     support: "Suporte",
     contribution: "Fazer Doação",
+    terms: "Termos de Serviço",
     privacy: "Política de Privacidade",
   },
   footer: {
@@ -443,5 +444,23 @@ export const ptBr = {
     disclaimerTitle: "Isenção de Responsabilidade",
     disclaimerText:
       "Este bot utiliza dados da API pública Albion-data-project, mas não é afiliado ou endossado pelo Albion Online ou seus desenvolvedores.",
+  },
+  terms: {
+    title: "Termos de Serviço",
+    permissionsTitle: "Autorização de Permissões",
+    permissionsContent:
+      "Ao integrar o Albion Event Bot ao seu servidor Discord, você está permitindo o uso de permissões como: leitura e envio de mensagens, moderação de conteúdo, inserção de links e arquivos, acesso ao histórico de conversas, uso de emojis externos e comandos de interação.",
+
+    restrictionsTitle: "Limitações de Uso",
+    restrictionsContent:
+      "O bot não tem acesso a mensagens diretas nem realiza ações em nome dos usuários. Qualquer tentativa de utilização para práticas abusivas, automatizações não autorizadas ou atividades que infrinjam as regras da plataforma não será tolerada.",
+
+    acceptanceTitle: "Concordância com os Termos",
+    acceptanceContent:
+      "Ao utilizar o Albion Event Bot, você reconhece e aceita estas condições de uso. Caso não esteja de acordo, recomendamos não utilizar o bot em seu servidor.",
+
+    contactTitle: "Fale Conosco",
+    contactContent:
+      "Se você tiver dúvidas, sugestões ou precisar de suporte, entre em contato através do e-mail celomice@gmail.com ou pelo Discord em #celoaraujo.",
   },
 };

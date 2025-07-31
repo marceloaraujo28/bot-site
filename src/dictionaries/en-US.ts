@@ -390,6 +390,7 @@ export const enUs = {
     docs: "Documentation",
     support: "Support",
     contribution: "Make a Donation",
+    terms: "Terms of Service",
     privacy: "Privacy Policy",
   },
   footer: {
@@ -439,5 +440,21 @@ export const enUs = {
     disclaimerTitle: "Disclaimer",
     disclaimerText:
       "This bot uses data from the public Albion-data-project API but is not affiliated with or endorsed by Albion Online or its developers.",
+  },
+  terms: {
+    title: "Terms of Service",
+    permissionsTitle: "Required Permissions",
+    permissionsContent:
+      "By adding Albion Event Bot to your Discord server, you agree to grant the following permissions: `View Channels`, `Send Messages`, `Manage Channels`, `Manage Messages`, `Add Reactions`, `Read Message History`, `Connect`, `Speak`, `Embed Links`, `Use External Emojis`.",
+
+    restrictionsTitle: "Usage Restrictions",
+    restrictionsContent:
+      "The bot does not read private messages or send messages on behalf of users. It must not be used for malicious, abusive purposes, or in violation of Discord’s Terms of Service.",
+    acceptanceTitle: "Acceptance of Terms",
+    acceptanceContent:
+      "By using the bot, you agree to these Terms of Service. If you do not agree, please remove the bot from your server.",
+    contactTitle: "Contact",
+    contactContent:
+      "If you have any questions, suggestions, or need support, feel free to reach out via email at celomice@gmail.com or on Discord at #celoaraujo.",
   },
 };

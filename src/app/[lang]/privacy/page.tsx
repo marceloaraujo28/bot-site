@@ -12,7 +12,7 @@ export default function PrivacyPolicyPage({ params }: { params: Promise<{ lang: 
     <section className="min-h-screen flex flex-col items-center p-5">
       <h1 className="text-3xl font-bold text-white text-center mb-8">{t.privacyPolicy.title}</h1>
 
-      <div className="bg-[#221f41] border border-[#332f5d] p-8 rounded-xl shadow-md w-full max-w-4xl text-gray-200 max-w-3xl space-y-6">
+      <div className="bg-[#221f41] border border-[#332f5d] p-8 rounded-xl shadow-md w-full max-w-4xl text-gray-200 space-y-6">
         <div>
           <h2 className="text-xl font-semibold text-amber-400 mb-2">{t.privacyPolicy.infoCollectedTitle}</h2>
           <p>{t.privacyPolicy.infoCollectedText}</p>
