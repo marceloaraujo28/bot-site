@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useEffect, useState } from "react";
+import { use } from "react";
 import { getDictionaryClient } from "@/dictionaries/client";
 import { Locale } from "@/config/i18n.config";
 
