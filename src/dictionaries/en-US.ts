@@ -390,6 +390,7 @@ export const enUs = {
     docs: "Documentation",
     support: "Support",
     contribution: "Make a Donation",
+    privacy: "Privacy Policy",
   },
   footer: {
     rights: "© 2025 Albion Event Bot. All rights reserved.",
@@ -412,5 +413,31 @@ export const enUs = {
         "Albion Market Price",
       ],
     },
+  },
+  privacyPolicy: {
+    title: "Privacy Policy",
+    infoCollectedTitle: "Information Collected",
+    infoCollectedText:
+      "To provide a personalized experience, we collect only essential data such as your Discord server ID, preferred language, and selected game server (West or East). This information is used solely to optimize the bot's functionality.",
+
+    dataUseTitle: "Data Usage",
+    dataUseText:
+      "The bot does not access private messages nor act on behalf of users. Its use is limited to authorized functionalities, and any malicious or unauthorized activity is strictly prohibited and may result in a ban.",
+
+    storageTitle: "Storage and Security",
+    storageText:
+      "Collected data is securely stored and used exclusively to ensure the bot’s operation and the delivery of services such as price checking and event management.",
+
+    userRightsTitle: "User Rights",
+    userRightsText:
+      "You have the right to request removal of your data at any time. Data will be retained as long as the bot remains active on your server, always ensuring data privacy and security.",
+
+    updatesTitle: "Policy Updates",
+    updatesText:
+      "If any changes to this policy occur, we will notify you in advance via our website and request your active consent to continue using our services.",
+
+    disclaimerTitle: "Disclaimer",
+    disclaimerText:
+      "This bot uses data from the public Albion-data-project API but is not affiliated with or endorsed by Albion Online or its developers.",
   },
 };

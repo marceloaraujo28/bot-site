@@ -394,6 +394,7 @@ export const ptBr = {
     docs: "Documentação",
     support: "Suporte",
     contribution: "Fazer Doação",
+    privacy: "Política de Privacidade",
   },
   footer: {
     rights: "© 2025 Albion Event Bot. Todos os direitos reservados.",
@@ -416,5 +417,31 @@ export const ptBr = {
         "Albion Market Price",
       ],
     },
+  },
+  privacyPolicy: {
+    title: "Política de Privacidade",
+    infoCollectedTitle: "Informações Coletadas",
+    infoCollectedText:
+      "Para oferecer uma experiência personalizada, coletamos apenas dados essenciais, como o ID do servidor Discord, idioma preferido e a seleção do servidor do jogo (West ou East). Essas informações são usadas exclusivamente para otimizar o funcionamento do bot.",
+
+    dataUseTitle: "Uso dos Dados",
+    dataUseText:
+      "O bot não acessa mensagens privadas nem age em nome dos usuários. Seu uso é restrito às funcionalidades autorizadas, e qualquer atividade mal-intencionada ou uso indevido é proibido e passível de bloqueio.",
+
+    storageTitle: "Armazenamento e Segurança",
+    storageText:
+      "Os dados coletados são mantidos de forma segura e utilizados exclusivamente para garantir o funcionamento do bot e a prestação dos serviços oferecidos, como consulta de preços e controle de eventos.",
+
+    userRightsTitle: "Direitos do Usuário",
+    userRightsText:
+      "Você tem o direito de solicitar a remoção dos seus dados a qualquer momento. Os dados serão mantidos enquanto o bot estiver ativo no servidor, garantindo sempre a segurança e privacidade das informações.",
+
+    updatesTitle: "Atualizações na Política",
+    updatesText:
+      "Caso haja qualquer mudança nesta política, informaremos com antecedência por meio do nosso site e solicitaremos seu consentimento para continuar utilizando nossos serviços.",
+
+    disclaimerTitle: "Isenção de Responsabilidade",
+    disclaimerText:
+      "Este bot utiliza dados da API pública Albion-data-project, mas não é afiliado ou endossado pelo Albion Online ou seus desenvolvedores.",
   },
 };
