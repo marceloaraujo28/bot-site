@@ -400,7 +400,7 @@ export const enUs = {
   },
   SEO: {
     home: {
-      title: "Albion Event Bot - Bot for Albion Online with Loot Split and Market Price",
+      title: "Albion Event Bot - Loot Split & Market Price",
       description:
         "Free bot for Albion Online with automatic Loot Split, market price checking, and event alerts. Optimize your game with ease!",
       keywords: [

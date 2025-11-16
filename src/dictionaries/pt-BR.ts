@@ -404,7 +404,7 @@ export const ptBr = {
   },
   SEO: {
     home: {
-      title: "Albion Event Bot - Bot para Albion Online com Loot Split e Preço de Mercado",
+      title: "Albion Event Bot - Loot Split & Market Price",
       description:
         "Bot gratuito para Albion Online com funções de Loot Split automático, verificação de preços do mercado e alertas de eventos. Otimize seu jogo com facilidade!",
       keywords: [

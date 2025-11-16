@@ -19,13 +19,19 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Loc
   const t = getDictionaryServer(lang);
 
   return {
-    title: t.SEO.home.title,
+    title: "Albion Event Bot - Loot Split & Market Price",
     description: t.SEO.home.description,
     icons: {
       icon: "/faviconIco.ico",
     },
     keywords: t.SEO.home.keywords,
     applicationName: "Albion Event Bot",
+    openGraph: {
+      title: t.SEO.home.title,
+      description: t.SEO.home.description,
+      siteName: "Albion Event Bot",
+      type: "website",
+    },
   };
 }
 
