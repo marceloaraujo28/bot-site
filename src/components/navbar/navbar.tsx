@@ -1,142 +1,86 @@
 "use client";
-import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { Menu, X } from "lucide-react";
+
+import { signOutForLocale } from "@/actions/auth";
 import { Locale } from "@/config/i18n.config";
 import { getDictionaryClient } from "@/dictionaries/client";
+import { ChevronDown, LayoutDashboard, LogIn, LogOut, Menu, ShieldCheck, X } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import { useState } from "react";
 
-export function Navbar({ lang }: { lang: Locale }) {
+type NavbarProps = {
+  lang: Locale;
+  user: { name?: string | null; image?: string | null } | null;
+  isBotOwner?: boolean;
+};
+
+const languageOptions = [
+  { value: "pt-BR", flag: "🇧🇷", label: "Português" },
+  { value: "en-US", flag: "🇺🇸", label: "English" },
+] as const;
+
+export function Navbar({ lang, user, isBotOwner = false }: NavbarProps) {
   const t = getDictionaryClient(lang);
-
+  const pathname = usePathname();
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+  const [isAccountOpen, setIsAccountOpen] = useState(false);
+  const currentLanguage = languageOptions.find((option) => option.value === lang) ?? languageOptions[0];
+
+  async function changeLanguage(nextLocale: Locale) {
+    if (nextLocale === lang) {
+      setIsLanguageOpen(false);
+      return;
+    }
+
+    const response = await fetch("/api/locale", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ locale: nextLocale }),
+    });
+
+    if (!response.ok) return;
+
+    setIsLanguageOpen(false);
+    router.replace(`${pathname || "/"}${window.location.search}${window.location.hash}`);
+    router.refresh();
+  }
+
+  const navLinks = [
+    { href: "/", label: t.navBar.home },
+    { href: "/docs", label: t.navBar.docs },
+    { href: "https://discord.gg/AjGZbc5b2s", label: t.navBar.support, external: true },
+  ];
 
   return (
-    <nav className="bg-[#201d3c] p-2 shadow-lg">
-      <div className="container m-auto px-4">
-        <div className="flex items-center justify-between">
-          <Link href="/">
-            <Image
-              src="/logo.png"
-              alt="Albion Event Bot"
-              width={55}
-              height={55}
-              className="rounded-2xl opacity-80 shadow-lg hover:opacity-100 transition-opacity duration-300"
-            />
-          </Link>
+    <nav className="border-b border-white/10 bg-[#201d3c] text-white shadow-[0_10px_35px_rgba(0,0,0,0.2)]">
+      <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-4 px-4 py-3 lg:px-8">
+        <Link href="/" className="flex cursor-pointer shrink-0 items-center gap-2" aria-label="Albion Event Bot home">
+          <Image src="/logo.png" alt="" width={34} height={34} className="rounded-lg" />
+          <span className="hidden text-sm font-bold sm:block">Albion Event Bot</span>
+        </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex gap-4">
-            <Link
-              href="/"
-              className="text-gray-300 text-base font-medium hover:text-gray-400 transition-colors duration-300"
-            >
-              {t.navBar.home}
-            </Link>
-            <Link
-              href="/docs"
-              className="text-gray-300 text-base font-medium hover:text-gray-400 transition-colors duration-300"
-            >
-              {t.navBar.docs}
-            </Link>
-            <Link
-              href="https://discord.gg/AjGZbc5b2s"
-              className="text-gray-300 hover:text-white"
-              onClick={() => setIsOpen(false)}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image alt="Discord Logo" src="/discord.png" width={20} height={20} className="inline-block mr-2" />
-              <span>{t.navBar.support}</span>
-            </Link>
-            <Link
-              href="/contribution"
-              className="text-green-400 text-base font-medium hover:text-green-300 transition-colors duration-300"
-            >
-              {t.navBar.contribution}
-            </Link>
-            <Link
-              href="/terms"
-              className="text-gray-300 text-base font-medium hover:text-gray-400 transition-colors duration-300"
-            >
-              {t.navBar.terms}
-            </Link>
-            <Link
-              href="/privacy"
-              className="text-gray-300 text-base font-medium hover:text-gray-400 transition-colors duration-300"
-            >
-              {t.navBar.privacy}
-            </Link>
+        <div className="hidden items-center gap-6 lg:flex">
+          {navLinks.map((link) => link.external ? <a key={link.href} href={link.href} target="_blank" rel="noreferrer" className="cursor-pointer text-sm font-semibold text-slate-300 transition hover:text-white">{link.label}</a> : <Link key={link.href} href={link.href} className="cursor-pointer text-sm font-semibold text-slate-300 transition hover:text-white">{link.label}</Link>)}
+        </div>
+
+        <div className="flex items-center gap-2">
+          <div className="relative">
+            <button type="button" onClick={() => setIsLanguageOpen((value) => !value)} className="flex cursor-pointer items-center gap-1.5 rounded-lg px-2 py-2 text-xs font-semibold text-slate-200 transition hover:bg-white/6" aria-expanded={isLanguageOpen} aria-label="Change language">
+              <span>{currentLanguage.flag}</span><span className="hidden sm:inline">{currentLanguage.label}</span><ChevronDown className="h-3.5 w-3.5 text-slate-500" />
+            </button>
+            {isLanguageOpen && <div className="absolute right-0 top-[calc(100%+0.5rem)] z-50 w-40 rounded-xl border border-white/10 bg-[#151720] p-1.5 shadow-2xl">{languageOptions.map((option) => <button key={option.value} type="button" onClick={() => changeLanguage(option.value)} className={`flex w-full cursor-pointer items-center gap-2 rounded-lg px-3 py-2 text-left text-sm transition ${option.value === lang ? "bg-violet-500/15 text-white" : "text-slate-300 hover:bg-white/5"}`}><span>{option.flag}</span>{option.label}</button>)}</div>}
           </div>
 
-          {/* Mobile menu button */}
-          <button className="md:hidden text-gray-300" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
-            <Menu size={28} />
-          </button>
+          {user ? <div className="relative"><button type="button" onClick={() => setIsAccountOpen((value) => !value)} className="flex h-9 w-9 cursor-pointer items-center justify-center overflow-hidden rounded-full border border-violet-300/30 bg-violet-500/15 text-sm font-bold text-violet-100" aria-expanded={isAccountOpen} aria-label="Account menu">{user.image ? <img src={user.image} alt="" className="h-full w-full object-cover" /> : user.name?.slice(0, 1).toUpperCase() ?? "A"}</button>{isAccountOpen && <div className="absolute right-0 top-[calc(100%+0.5rem)] z-50 w-56 overflow-hidden rounded-xl border border-white/10 bg-[#151720] shadow-2xl"><div className="border-b border-white/8 px-4 py-3"><p className="truncate text-sm font-semibold text-white">{user.name ?? "Discord user"}</p><p className="mt-0.5 text-xs text-slate-500">Discord</p></div><Link href="/dashboard" onClick={() => setIsAccountOpen(false)} className="flex cursor-pointer items-center gap-2 px-4 py-3 text-sm text-slate-200 transition hover:bg-white/5"><LayoutDashboard className="h-4 w-4 text-violet-300" />{lang === "pt-BR" ? "Meus servidores" : "My servers"}</Link>{isBotOwner && <Link href="/admin" onClick={() => setIsAccountOpen(false)} className="flex cursor-pointer items-center gap-2 px-4 py-3 text-sm text-amber-100 transition hover:bg-amber-400/10"><ShieldCheck className="h-4 w-4 text-amber-300" />{lang === "pt-BR" ? "Administrador" : "Administrator"}</Link>}<form action={signOutForLocale}><button className="flex w-full cursor-pointer items-center gap-2 px-4 py-3 text-left text-sm text-slate-300 transition hover:bg-white/5"><LogOut className="h-4 w-4 text-slate-400" />{lang === "pt-BR" ? "Sair" : "Sign out"}</button></form></div>}</div> : <Link href="/login" className="inline-flex cursor-pointer items-center gap-1.5 rounded-lg border border-violet-300/30 bg-violet-500/12 px-3 py-2 text-xs font-bold text-violet-100 transition hover:bg-violet-500/25"><LogIn className="h-3.5 w-3.5" />{lang === "pt-BR" ? "Entrar" : "Sign in"}</Link>}
+
+          <button className="cursor-pointer rounded-lg p-2 text-slate-300 hover:bg-white/6 lg:hidden" onClick={() => setIsOpen((value) => !value)} aria-label="Toggle menu">{isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}</button>
         </div>
       </div>
 
-      <div
-        className={`fixed top-0 right-0 h-full w-64 bg-[#201d3c] shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        } md:hidden`}
-      >
-        <div className="flex justify-between items-center p-4 border-b border-gray-700">
-          <span className="text-white font-bold text-lg">Menu</span>
-          <button onClick={() => setIsOpen(false)} aria-label="Close menu">
-            <X size={24} className="text-white" />
-          </button>
-        </div>
-        <div className="flex flex-col p-4 gap-4">
-          <Link href="/" className="text-gray-300 hover:text-white" onClick={() => setIsOpen(false)}>
-            {t.navBar.home}
-          </Link>
-          <Link href="/docs" className="text-gray-300 hover:text-white" onClick={() => setIsOpen(false)}>
-            {t.navBar.docs}
-          </Link>
-          <Link
-            href="https://discord.gg/AjGZbc5b2s"
-            className="text-gray-300 hover:text-white"
-            onClick={() => setIsOpen(false)}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              alt="Discord Logo"
-              src="/discord.png"
-              quality={100}
-              width={24}
-              height={24}
-              className="inline-block mr-2"
-            />
-            <span>{t.navBar.support}</span>
-          </Link>
-          <Link
-            href="/contribution"
-            className="text-green-400 text-base font-medium hover:text-green-300 transition-colors duration-300"
-            onClick={() => setIsOpen(false)}
-          >
-            {t.navBar.contribution}
-          </Link>
-          <Link
-            href="/terms"
-            className="text-gray-300 text-base font-medium hover:text-gray-400 transition-colors duration-300"
-          >
-            {t.navBar.terms}
-          </Link>
-          <Link
-            href="/privacy"
-            className="text-gray-300 text-base font-medium hover:text-gray-400 transition-colors duration-300"
-          >
-            {t.navBar.privacy}
-          </Link>
-        </div>
-      </div>
-
-      {/* Background overlay */}
-      {isOpen && (
-        <div className="fixed inset-0 bg-black opacity-50 z-40 md:hidden" onClick={() => setIsOpen(false)}></div>
-      )}
+      {isOpen && <div className="border-t border-white/8 px-4 py-4 lg:hidden"><div className="flex flex-col gap-1">{navLinks.map((link) => link.external ? <a key={link.href} href={link.href} target="_blank" rel="noreferrer" onClick={() => setIsOpen(false)} className="cursor-pointer rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-300 hover:bg-white/5">{link.label}</a> : <Link key={link.href} href={link.href} onClick={() => setIsOpen(false)} className="cursor-pointer rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-300 hover:bg-white/5">{link.label}</Link>)}</div></div>}
     </nav>
   );
 }

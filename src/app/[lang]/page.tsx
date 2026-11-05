@@ -3,6 +3,7 @@ import { Locale } from "@/config/i18n.config";
 import { use } from "react";
 import Header from "@/components/header/header";
 import { getDictionaryServer } from "@/dictionaries/server";
+import { getBotInstallUrl } from "@/lib/bot-install";
 
 export default function Home({ params }: { params: Promise<{ lang: Locale }> }) {
   const { lang } = use(params);
@@ -10,7 +11,7 @@ export default function Home({ params }: { params: Promise<{ lang: Locale }> }) 
 
   return (
     <main className="flex flex-col">
-      <Header t={t} />
+      <Header t={t} installUrl={getBotInstallUrl()} />
       <section className="max-w-[1300px] mx-auto px-6 pb-4 mt-20 mb-20 md:mt-0">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">{t.HomePage.aboutBot}</h2>
 

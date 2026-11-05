@@ -392,6 +392,7 @@ export const ptBr = {
   navBar: {
     home: "Home",
     docs: "Documentação",
+    dashboard: "Painel",
     support: "Suporte",
     contribution: "Fazer Doação",
     terms: "Termos de Serviço",
