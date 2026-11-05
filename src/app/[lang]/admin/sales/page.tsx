@@ -1,0 +1,8 @@
+import { AdminEmptyState, AdminMetricCard } from "@/components/admin/admin-cards";
+import { getAdminOverview } from "@/lib/admin-backoffice";
+import { CreditCard, Landmark, ShoppingBag } from "lucide-react";
+
+export default async function AdminSalesPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params; const pt = lang === "pt-BR"; const overview = await getAdminOverview();
+  return <div className="space-y-6 pb-16 lg:pb-0"><header><p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-300">{pt ? "Comercial" : "Commercial"}</p><h1 className="mt-2 text-3xl font-bold text-white">{pt ? "Vendas" : "Sales"}</h1><p className="mt-2 text-sm text-slate-400">{pt ? "Visão preparada para cartões, PIX e renovações." : "A view prepared for cards, PIX and renewals."}</p></header><section className="grid gap-4 sm:grid-cols-3"><AdminMetricCard label={pt ? "Assinaturas ativas" : "Active subscriptions"} value={overview.totals.activeSubscriptions} icon={ShoppingBag} tone="amber" /><AdminMetricCard label="Stripe" value="—" detail={pt ? "Aguardando integração" : "Awaiting integration"} icon={CreditCard} tone="violet" /><AdminMetricCard label="Asaas / PIX" value="—" detail={pt ? "Aguardando integração" : "Awaiting integration"} icon={Landmark} tone="emerald" /></section><AdminEmptyState title={pt ? "Nenhuma venda processada ainda" : "No processed sales yet"} description={pt ? "Quando os checkouts e webhooks de Stripe/Asaas forem conectados, esta página mostrará receita, pagamentos, reembolsos, falhas e conversão de trial." : "When Stripe/Asaas checkouts and webhooks are connected, this page will show revenue, payments, refunds, failures and trial conversion."} /></div>;
+}
