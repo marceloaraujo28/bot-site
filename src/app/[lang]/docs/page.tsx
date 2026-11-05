@@ -1,10 +1,12 @@
 import { Locale } from "@/config/i18n.config";
 import { getDictionaryServer } from "@/dictionaries/server";
+import { getBotInstallUrl } from "@/lib/bot-install";
 import { use } from "react";
 
 export default function Documentation({ params }: { params: Promise<{ lang: Locale }> }) {
   const { lang } = use(params);
   const t = getDictionaryServer(lang);
+  const installUrl = getBotInstallUrl();
 
   return (
     <section className="space-y-6">
@@ -15,14 +17,11 @@ export default function Documentation({ params }: { params: Promise<{ lang: Loca
       <ol className="list-decimal list-inside space-y-2 text-gray-300">
         <li>
           <span>{t.docsInstalation.steps.step1} </span>
-          <a
-            href="https://discord.com/oauth2/authorize?client_id=1272188978765893714&permissions=8&scope=bot%20applications.commands"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-400 underline hover:text-blue-300"
-          >
-            {t.docsInstalation.steps.step1Link}
-          </a>
+          {installUrl && (
+            <a href={installUrl} target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-300">
+              {t.docsInstalation.steps.step1Link}
+            </a>
+          )}
         </li>
         <li>{t.docsInstalation.steps.step2}</li>
         <li>{t.docsInstalation.steps.step3}</li>

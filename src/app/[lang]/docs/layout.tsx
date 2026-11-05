@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { use, useEffect, useState } from "react";
 import Breadcrumb from "@/components/breadcrumb/breadcrumb";
-import { Locale } from "@/config/i18n.config";
 import { getDictionaryClient } from "@/dictionaries/client";
 
 export default function DocsLayout({
@@ -12,7 +11,7 @@ export default function DocsLayout({
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: Promise<{ lang: Locale }>;
+  params: Promise<{ lang: string }>;
 }>) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -21,7 +20,8 @@ export default function DocsLayout({
   };
 
   const { lang } = use(params);
-  const t = getDictionaryClient(lang);
+  const language = lang === "pt-BR" ? "pt-BR" : "en-US";
+  const t = getDictionaryClient(language);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";

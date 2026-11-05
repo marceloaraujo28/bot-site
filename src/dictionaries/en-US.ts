@@ -388,6 +388,7 @@ export const enUs = {
   navBar: {
     home: "Home",
     docs: "Documentation",
+    dashboard: "Dashboard",
     support: "Support",
     contribution: "Make a Donation",
     terms: "Terms of Service",
